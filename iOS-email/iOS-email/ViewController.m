@@ -39,6 +39,7 @@
     }
 }
 
+
 - (void)sendEmail {
     MFMailComposeViewController * mailComposeViewController = [[MFMailComposeViewController alloc]init];
     mailComposeViewController.mailComposeDelegate = self;
@@ -72,6 +73,10 @@
 
 #pragma MFMailComposeViewControllerDelegate
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
+    
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+    }];
     
 }
 
