@@ -17,6 +17,7 @@
 		D236C4251D0E9E58008C9E2E /* iOS_emailUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D236C4241D0E9E58008C9E2E /* iOS_emailUITests.m */; };
 		D236C4331D0EA14D008C9E2E /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D236C4321D0EA14D008C9E2E /* MessageUI.framework */; };
 		D236C4351D0EA605008C9E2E /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D236C4341D0EA605008C9E2E /* 1.jpg */; settings = {ASSET_TAGS = (); }; };
+		D236C4381D0EC29D008C9E2E /* emailSendHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D236C4371D0EC29D008C9E2E /* emailSendHelper.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,8 @@
 		D236C4261D0E9E58008C9E2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D236C4321D0EA14D008C9E2E /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		D236C4341D0EA605008C9E2E /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
+		D236C4361D0EC29D008C9E2E /* emailSendHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = emailSendHelper.h; sourceTree = "<group>"; };
+		D236C4371D0EC29D008C9E2E /* emailSendHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = emailSendHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +89,8 @@
 		D236C3F31D0E9E58008C9E2E = {
 			isa = PBXGroup;
 			children = (
+				D236C4361D0EC29D008C9E2E /* emailSendHelper.h */,
+				D236C4371D0EC29D008C9E2E /* emailSendHelper.m */,
 				D236C4341D0EA605008C9E2E /* 1.jpg */,
 				D236C4321D0EA14D008C9E2E /* MessageUI.framework */,
 				D236C3FE1D0E9E58008C9E2E /* iOS-email */,
@@ -281,6 +286,7 @@
 			files = (
 				D236C4071D0E9E58008C9E2E /* ViewController.m in Sources */,
 				D236C4041D0E9E58008C9E2E /* AppDelegate.m in Sources */,
+				D236C4381D0EC29D008C9E2E /* emailSendHelper.m in Sources */,
 				D236C4011D0E9E58008C9E2E /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

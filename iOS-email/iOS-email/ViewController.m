@@ -12,8 +12,9 @@
 #define My_Color(a,b,c) [UIColor colorWithRed:(a)/255.0f green:(b)/255.0f blue:(c)/255.0f alpha:1.0]
 
 #import "ViewController.h"
+#import "emailSendHelper.h"
 
-@interface ViewController ()
+@interface ViewController ()<emailSendHelperDelegate>
 
 @end
 
@@ -33,51 +34,23 @@
 
 - (void)btnClick:(id)sender {
     if ([MFMailComposeViewController canSendMail]) {
-        [self sendEmail];
+//        [self sendEmail];
+        
+        
+        emailSendHelper *helper = [[emailSendHelper alloc]init];
+        helper.sendHelperDelegate = self;
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"1" ofType:@"jpg"];
+        NSData *myData = [NSData dataWithContentsOfFile:path];
+        MFMailComposeViewController *controller = [helper sendEmailWithSubject:@"Hello from easemob" andToRecipients:@[@"zhangyb@easemob.com"] andccRecipients:@[@"ted@easemo.com"] andbccRecipients:@[@"aaa@easemob.com"] andData:myData andType:@"image/jpeg" andFilename:@"1" andHtml:nil andBody:@"easemob" isHtml:NO];
+        [self presentViewController:controller animated:YES completion:nil];
     } else {
         NSLog(@"Device not configured to send SMS.");
     }
 }
 
-
-- (void)sendEmail {
-    MFMailComposeViewController * mailComposeViewController = [[MFMailComposeViewController alloc]init];
-    mailComposeViewController.mailComposeDelegate = self;
-    [mailComposeViewController setSubject:@"Hello from easemob"];
-    // Set up recipients
-    //设置收件人
-    NSArray *toRecipients = [NSArray arrayWithObject:@"zhangyb@easemob.com"];
-    //抄送
-    NSArray *ccRecipients = [NSArray arrayWithObjects:@"ted@easemob.com", nil];
-    //秘送
-    NSArray *bccRecipients = [NSArray arrayWithObject:@"zhuhy@easemob.com"];
-    
-    [mailComposeViewController setToRecipients:toRecipients];
-    [mailComposeViewController setCcRecipients:ccRecipients];
-    [mailComposeViewController setBccRecipients:bccRecipients];
-    
-    // Attach an image to the email
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"1" ofType:@"jpg"];
-    NSData *myData = [NSData dataWithContentsOfFile:path];
-    [mailComposeViewController addAttachmentData:myData mimeType:@"image/jpeg" fileName:@"1"];
-    
-    // Fill out the email body text
-    NSString *emailBody = @"easemob!";
-    [mailComposeViewController setMessageBody:emailBody isHTML:NO];
-    
-    [self presentViewController:mailComposeViewController animated:YES completion:NULL];
-    
-    
-}
-
-
-#pragma MFMailComposeViewControllerDelegate
-- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
-    
-    [self dismissViewControllerAnimated:YES completion:^{
-        
-    }];
-    
+#pragma emailSenderHelperDelegate
+- (void)didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {
