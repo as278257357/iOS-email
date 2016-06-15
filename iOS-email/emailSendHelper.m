@@ -44,13 +44,7 @@
     
 }
 
-#pragma MFMailComposeViewControllerDelegate
-- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
-    
-    if(_sendHelperDelegate && [_sendHelperDelegate respondsToSelector:@selector(didFinishWithResult:error:)]) {
-        [_sendHelperDelegate didFinishWithResult:result error:error];
-    }
-}
+
 
 
 @end

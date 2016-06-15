@@ -48,8 +48,8 @@
     }
 }
 
-#pragma emailSenderHelperDelegate
-- (void)didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
